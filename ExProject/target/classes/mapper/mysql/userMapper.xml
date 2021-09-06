@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sample">
+
+	<insert id="userJoin" parameterType="UserDTO">
+		insert into sample_writer_tb(
+			BOARD_WRITER 
+		 	,BOARD_WRITER_NAME
+			,BOARD_WRITER_PW 
+			,BOARD_WRITER_PHONE
+			,BOARD_WRITER_EMAIL
+			,FILE_IDX
+			,BOARD_WRITER_JOIN_DATE
+			,SALT
+		)
+		values (
+			#{boardWriter}
+			,#{boardWriterName}
+			,#{boardWriterPw}
+			,#{boardWriterPhone}
+			,#{boardWriterEmail} 
+			,#{fileIdx}
+			,#{BoardWriterJoinDate}
+			,#{salt} 
+			
+		)
+		<selectKey resultType="int" keyProperty="boardWriterIdx" order="AFTER"><![CDATA[ SELECT LAST_INSERT_ID() ]]></selectKey>
+	</insert>
+	<!-- 파일업로드 -->
+	<insert id="insertProfile" parameterType="FileDTO">
+		INSERT INTO sample_file_tb
+			(	FILE_ORIGINAL_NAME
+				, FILE_CHANGED_NAME
+				, FILE_PATH
+			) VALUES(
+				#{fileOriginalName}
+				, #{fileChangeName}
+				, #{filePath}
+			)
+		<selectKey resultType="int" keyProperty="fileIdx" order="AFTER"><![CDATA[ SELECT LAST_INSERT_ID() ]]></selectKey>
+	</insert>
+	<select id="selectUser" parameterType="UserDTO" resultType="UserDTO">
+		SELECT
+			BOARD_WRITER_IDX
+			,BOARD_WRITER
+			,BOARD_WRITER_NAME
+			,BOARD_WRITER_PHONE
+			,BOARD_WRITER_EMAIL
+		FROM
+			sample_writer_tb
+<!-- 		
+		<where>
+			<if test="boardWriterIdx       !=null and boardWriterIdx       !=''"><![CDATA[ AND BOARD_WRITER_IDX         = #{boardWriterIdx}       ]]></if>
+			<if test="boardWriter    !=null and boardWriter    !=''"><![CDATA[ AND BOARD_WRITER      = #{boardWriter}    ]]></if>
+			<if test="boardWriterName    !=null and boardWriterName     !=''"><![CDATA[ AND BOARD_WRITER_NAME       = #{boardWriterName}     ]]></if>
+			<if test="boardWriterPhone  !=null and boardWriterPhone  !=''"><![CDATA[ AND BOARD_WRITER_PHONE    = #{boardWriterPhone}  ]]></if>
+			<if test="boardWriterEmail !=null and boardWriterEmail !=''"><![CDATA[ AND BOARD_WRITER_EMAIL  = #{boardWriterEmail} ]]></if>
+		</where>	 -->
+			
+		
+	</select>
+	<!-- 	로그인 -->
+	<select id="userlogin" parameterType="UserDTO" resultType="UserDTO">
+		SELECT
+			*
+		FROM
+			sample_writer_tb
+		WHERE
+			BOARD_WRITER = #{boardWriter}
+	</select>
+	<!-- 관리자 로그인 -->
+	<select id="adminLogin" parameterType="AdminDTO" resultType="AdminDTO">
+		SELECT
+			*
+		FROM
+			sample_admin_tb
+		WHERE
+			ADMIN_ID = #{adminId}
+	</select>
+	<!-- 관리자 로그인체크 -->
+	<select id="adminLoginChk" parameterType="AdminDTO" resultType="integer">
+		SELECT 
+			COUNT(*) 
+		FROM 
+			sample_admin_tb
+		WHERE 
+			ADMIN_ID = #{adminId}
+	</select>
+	<select id="userLoginChk" parameterType="UserDTO" resultType="integer">
+		SELECT 
+			COUNT(*) 
+		FROM 
+			sample_writer_tb
+		WHERE 
+			BOARD_WRITER = #{boardWriter}
+	</select>
+	
+	<select id="listUser" resultType="UserDTO">
+		SELECT
+			*
+		FROM
+			sample_writer_tb
+		WHERE 
+			BOARD_WRITER_IDX > 0
+		<include refid="searchCondition"></include>	
+		ORDER BY
+			BOARD_WRITER_IDX DESC
+		LIMIT
+			#{pageStart}, #{perPageNum}
+	</select>
+
+	<!-- 총 가입자 수 -->
+	<select id="totalUser" resultType="int">
+		 SELECT 
+		 	count(*)
+		 FROM 
+		 	sample_writer_tb
+	</select>
+	
+	<!-- 오늘 게시물 수 -->
+	<select id="todayCount" resultType="int">
+		SELECT 
+			count(*)
+		FROM 
+			SAMPLE_BOARD_TB
+		WHERE
+			DATE_FORMAT(BOARD_WRITE_DATE, "%Y-%m-%d") = CURDATE();
+	</select>
+		<!-- 오늘 가입자 수 -->
+	<select id="todayUser" resultType="int">
+		SELECT
+			count(*) 
+		FROM 
+			sample_writer_tb
+		WHERE
+			DATE_FORMAT(BOARD_WRITER_JOIN_DATE, "%Y-%m-%d") = CURDATE();
+	</select>
+	<update id="modify" parameterType="userDTO">
+		UPDATE 
+			sample_writer_tb 
+		SET
+			BOARD_WRITER_NAME = #{boardWriterName}
+			, BOARD_WRITER_PW = #{boardWriterPw}
+			, BOARD_WRITER_PHONE = #{boardWriterPhone}
+			, BOARD_WRITER_EMAIL = #{boardWriterEmail}
+		WHERE 
+			BOARD_WRITER = #{boardWriter}
+	</update>
+	<delete id="userDelete">
+		DELETE
+		FROM
+			sample_writer_tb
+		WHERE
+			BOARD_WRITER = #{boardWriter}
+	</delete>
+	<delete id="adminDelete">
+		DELETE
+		FROM
+			sample_writer_tb
+		WHERE
+			BOARD_WRITER = #{boardWriter}
+	</delete>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>
