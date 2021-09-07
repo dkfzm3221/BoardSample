@@ -9,7 +9,7 @@ public class LoginUtils {
 		
 		if(pw == null) {
 			return "";
-		}
+		} 
 		
 		byte[] hashValue = null;
 		
