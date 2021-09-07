@@ -14,26 +14,27 @@
 	
 	
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 
-	<!-- interceptors. same location as the 'DispatcherServlet' -->
- 	<!-- 스프링 인터셉터 설정 -->
- 	<!-- 
  	<interceptors>
 		<interceptor>
 			<mapping path="/**" />
-			-->
+			<mapping path="/sam/**"/>
+			
 			<!-- 인터셉터를 타지 않을 URI exclusive -->
-			<!-- 
-			<exclude-mapping path="/login.do"/>
-			<exclude-mapping path="/login_process.do"/>
-			<exclude-mapping path="/interview/**"/>
-			-->
-			<!-- 
-			<beans:bean id="loginInterceptor" class="com.seedit.lms.common.interceptor.LMSInterceptor" />
+ 
+			<exclude-mapping path="/main"/>
+			<exclude-mapping path="/join"/> 
+			<exclude-mapping path="/login"/> 
+			<exclude-mapping path="/logout"/>
+			<exclude-mapping path="/modify"/>
+			<exclude-mapping path="/delUser"/>
+			<exclude-mapping path="/adminLogin"/>
+		 
+			<beans:bean id="loginInterceptor" class="com.itkey.sam.utils.LoginCheckInterceptor" />
 		</interceptor>
+		
 	</interceptors> 
-	-->
+
 
 	<!-- annotation 으로 설정된 내용을 xml에서 사용하기 위한 설정 -->
 	<context:annotation-config/>

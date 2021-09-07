@@ -2,12 +2,13 @@ package com.itkey.sam.board.dto;
 
 import java.util.Date;
 
-public class UserDTO {
+public class UserDTO extends BoardDTO {
 	
 	private int boardWriterIdx			= 0;
 	private int fileIdx					= 0;
 	
 	
+	private String chatId				= null;
 	private String boardWriter			= null;
 	private String boardWriterPw		= null;
 	private String boardWriterName 		= null;
@@ -21,6 +22,14 @@ public class UserDTO {
 	
 
 
+	
+	
+	public String getChatId() {
+		return chatId;
+	}
+	public void setChatId(String chatId) {
+		this.chatId = chatId;
+	}
 	public String getBoardWriterName() {
 		return boardWriterName;
 	}

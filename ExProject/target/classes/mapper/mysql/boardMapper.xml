@@ -186,12 +186,11 @@
 						OR
 					 BOARD_WRITER LIKE CONCAT('%', #{keyword}, '%')
 					 	OR
-					 BOARD_TITLE LIKE CONCAT('%', #{keyword}, '%')
-					
+					 BOARD_TITLE LIKE CONCAT('%', #{keyword}, '%')		
 			</if>
 		</if>
-		
 	</sql>
+
 
 
 

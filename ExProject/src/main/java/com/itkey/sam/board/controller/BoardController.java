@@ -130,7 +130,7 @@ public class BoardController {
 		
 		String changeName = originFileName + UUID.randomUUID();
 		
-		String path = "C:\\Users\\ITKEY\\git\\BoardSample\\ExProject\\src\\main\\webapp\\resources\\images";
+		String path = "C:\\Users\\ITKEY\\git\\BoardSample_2\\ExProject\\src\\main\\webapp\\resources";
 		
 		FileDTO fDto = new FileDTO();
 		
@@ -303,7 +303,8 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value= "/chat", method=RequestMethod.GET)
-	public String chat(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception{
+	public String chat(HttpServletRequest request, HttpServletResponse response, Model model, UserDTO dto) throws Exception{
+		
 		
 		return "/chat";
 	}

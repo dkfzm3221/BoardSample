@@ -53,7 +53,7 @@ public class UserController {
 		String originFileName = mf.getOriginalFilename();
 		
 		String changeName = originFileName + UUID.randomUUID();
-		String path = "C:\\Users\\ITKEY\\git\\BoardSample\\ExProject\\src\\main\\webapp\\resources\\images";
+		String path = "C:\\Users\\ITKEY\\git\\BoardSample_2\\ExProject\\src\\main\\webapp\\resources";
 		
 		FileDTO fDto = new FileDTO();
 		
@@ -141,6 +141,7 @@ public class UserController {
 					+ "</script>";
 			
 			out.print(body);
+			
 			
 			session.setAttribute("id", dto.getBoardWriter());
 			

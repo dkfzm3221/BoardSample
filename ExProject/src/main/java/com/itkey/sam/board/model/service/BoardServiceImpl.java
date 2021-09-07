@@ -171,7 +171,6 @@ public class BoardServiceImpl implements BoardService {
 		return dao.listUser(cri);
 	}
 
-
 	
 	
 	

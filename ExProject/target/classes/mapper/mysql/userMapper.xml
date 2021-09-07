@@ -49,15 +49,14 @@
 			,BOARD_WRITER_EMAIL
 		FROM
 			sample_writer_tb
-<!-- 		
+		
 		<where>
 			<if test="boardWriterIdx       !=null and boardWriterIdx       !=''"><![CDATA[ AND BOARD_WRITER_IDX         = #{boardWriterIdx}       ]]></if>
 			<if test="boardWriter    !=null and boardWriter    !=''"><![CDATA[ AND BOARD_WRITER      = #{boardWriter}    ]]></if>
 			<if test="boardWriterName    !=null and boardWriterName     !=''"><![CDATA[ AND BOARD_WRITER_NAME       = #{boardWriterName}     ]]></if>
 			<if test="boardWriterPhone  !=null and boardWriterPhone  !=''"><![CDATA[ AND BOARD_WRITER_PHONE    = #{boardWriterPhone}  ]]></if>
 			<if test="boardWriterEmail !=null and boardWriterEmail !=''"><![CDATA[ AND BOARD_WRITER_EMAIL  = #{boardWriterEmail} ]]></if>
-		</where>	 -->
-			
+		</where>
 		
 	</select>
 	<!-- 	로그인 -->
@@ -161,7 +160,7 @@
 		WHERE
 			BOARD_WRITER = #{boardWriter}
 	</delete>
-	
+
 
 
 

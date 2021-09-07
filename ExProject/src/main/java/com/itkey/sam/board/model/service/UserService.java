@@ -36,7 +36,5 @@ public interface UserService {
 	public void adminDelete(UserDTO dto) throws Exception;
 
 
-	
-
 
 }

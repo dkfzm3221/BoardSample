@@ -88,7 +88,7 @@ public interface BoardDAO {
 	//유저 페이징
 	public List<UserDTO> listUser(Criteria cri) throws Exception;
 	
-	
+
 
 	
 	
