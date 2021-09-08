@@ -120,8 +120,19 @@
 
 	<!-- DELETE SAMPLE_BOARD_TB -->
 	<delete id="deleteBoard" parameterType="int">
-		DELETE FROM SAMPLE_BOARD_TB WHERE BOARD_IDX = #{boardIdx}
+		DELETE 
+		FROM 
+			SAMPLE_BOARD_TB 
+		WHERE 
+			BOARD_IDX = #{boardIdx}
 	</delete>
+<!-- 	<delete id="adminDeleteBoard" parameterType="int">
+		DELETE 
+		FROM 
+			SAMPLE_BOARD_TB
+		WHERE 
+			BOARD_IDX = #{boardIdx}
+	</delete> -->
 	<!-- 이전글  -->
 	<select id="pagePre" resultType="BoardDTO">
 		SELECT 

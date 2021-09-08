@@ -53,24 +53,13 @@ public class BoardServiceImpl implements BoardService {
 		return result;
 	};
 
-/*	public int chgBoard(BoardDTO eDTO) throws Exception {
-		logger.debug("* [SERVICE] Input  ◀ (Controller) : " + eDTO.toString());
-		int result = dao.updateBoard(eDTO);
-		logger.debug("* [SERVICE] Output ◀ (DAO) : " + result);
-		return result;
-	};
-*/
-	/*public int delBoard(String keyId) throws Exception {
-		logger.debug("* [SERVICE] Input  ◀ (Controller) : " + keyId);
-		int result = dao.deleteBoard(keyId);
-		logger.debug("* [SERVICE] Output ◀ (DAO) : " + result);
-		return result;
-	}*/
-	
+	//게시물 삭제
 	public void deleteBoard(int boardIdx) throws Exception{
 		dao.deleteBoard(boardIdx);
 	}
 	
+
+
 	//게시물 수
 	@Override
 	public int count() throws Exception {
@@ -78,13 +67,6 @@ public class BoardServiceImpl implements BoardService {
 		return dao.count();
 	}
 	
-/*	//게시물 상세조회
-	@Override
-	public List<BoardDTO> listPage(PageCriteria criteria) throws Exception {
-		
-		return dao.listPage(criteria);
-	}
-	*/
 	//총 가입 유저수
 	@Override
 	public int totalUser() throws Exception {
@@ -170,6 +152,13 @@ public class BoardServiceImpl implements BoardService {
 		
 		return dao.listUser(cri);
 	}
+
+	@Override
+	public void adminDelete(String no) throws Exception {
+		dao.adminDelete(no);
+		
+	}
+
 
 	
 	

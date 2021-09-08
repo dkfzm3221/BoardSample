@@ -45,9 +45,10 @@ public interface BoardDAO {
 	 * @return 성공여부 (삭제된 데이터 개수)
 	 * @throws Exception
 	 */
-	/*public int deleteBoard(String keyId) throws Exception;*/
-	
+
+	//게시물 삭제
 	public void deleteBoard(int boardIdx) throws Exception;
+	
 	
 	//게시물 총 갯수
 	public int count() throws Exception;
@@ -87,6 +88,9 @@ public interface BoardDAO {
 	
 	//유저 페이징
 	public List<UserDTO> listUser(Criteria cri) throws Exception;
+	
+	//관리자 게시판 삭제
+	public void adminDelete(String no) throws Exception;
 	
 
 

@@ -30,8 +30,6 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter{
 		}
 	
 		return true;
-		
-		
 
 	}
 	
@@ -41,19 +39,6 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter{
 
         super.postHandle(request, response, handler, modelAndView);
     }
- 
-/*    @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-            throws Exception {
 
-        super.afterCompletion(request, response, handler, ex);
-    }
-*/
-
-
-	
-	
-	
-	
 	
 }

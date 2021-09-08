@@ -154,11 +154,7 @@
 			BOARD_WRITER = #{boardWriter}
 	</delete>
 	<delete id="adminDelete">
-		DELETE
-		FROM
-			sample_writer_tb
-		WHERE
-			BOARD_WRITER = #{boardWriter}
+		
 	</delete>
 
 

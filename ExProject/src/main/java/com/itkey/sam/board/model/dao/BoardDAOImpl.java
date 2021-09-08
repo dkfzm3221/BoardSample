@@ -46,23 +46,13 @@ public class BoardDAOImpl implements BoardDAO {
 		return result;
 	};
 
-	/*public int updateBoard(BoardDTO eDTO) throws Exception {
-		logger.debug("* [DAO] Input  ◀ (Service) : " + eDTO.toString());
-		int result = sqlSession.update("updateBoard", eDTO);
-		logger.debug("* [DAO] Output ◀ (Mybatis) : " + result);
-		return result;
-	};
-*/
-	/*public int deleteBoard(String keyId) throws Exception {
-		logger.debug("* [DAO] Input  ◀ (Service) : " + keyId);
-		int result = sqlSession.delete("deleteBoard", keyId);
-		logger.debug("* [DAO] Output ◀ (Mybatis) : " + result);
-		return result;
-	}*/
-	
+	//관리자 게시물 삭제
 	public void deleteBoard(int boardIdx) throws Exception {
 		sqlSession.delete("deleteBoard", boardIdx);
 	}
+	
+
+	
 	//게시물 전체수
 	@Override
 	public int count() throws Exception {
@@ -164,6 +154,16 @@ public class BoardDAOImpl implements BoardDAO {
 		
 		return sqlSession.selectList("listUser", cri);
 	}
+
+	@Override
+	public void adminDelete(String no) throws Exception {
+		
+		sqlSession.delete("adminDelete", no);
+		
+	}
+
+
+
 
 	
 

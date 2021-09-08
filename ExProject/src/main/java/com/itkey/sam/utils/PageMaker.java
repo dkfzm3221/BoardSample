@@ -111,9 +111,19 @@ public class PageMaker {
 				
 		return uriComponents.toString();
 	}
+	public String makeQuerySearch(boolean needSearch) {
+		UriComponents uriComponents = UriComponentsBuilder.newInstance()
+				.queryParam("searchType", this.cri.getSearchType())
+				.queryParam("perPageNum", this.cri.getKeyword())
+				.build()
+				.encode();
+			
+		return uriComponents.toString();
+				
+					
+	}
 	
-	
-	
+		
 	
 	
 	

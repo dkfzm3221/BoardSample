@@ -74,5 +74,26 @@ public class Criteria extends BoardDTO{
 				.queryParam("perPageNum", this.perPageNum)
 				.build().encode().toString();
 	}
+	
+	
+	public String makeQuerySearch() {
+		return UriComponentsBuilder.newInstance()
+				.queryParam("searchType", this.searchType)
+				.queryParam("keyword", this.keyword)
+				.build().encode().toString();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

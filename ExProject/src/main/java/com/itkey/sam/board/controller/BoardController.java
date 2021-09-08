@@ -10,6 +10,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -211,9 +212,21 @@ public class BoardController {
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String getDelete(@RequestParam("boardIdx") int boardIdx) throws Exception{
 		
+	
 		boardService.deleteBoard(boardIdx);
 		
 		return "redirect:/main";
+	}
+	
+	//관리자 게시물 삭제
+	@RequestMapping(value = "/adminDelete", method = RequestMethod.GET)
+	public String adminDelete(@RequestParam("boardIdx") int boardIdx, HttpServletRequest request) throws Exception{
+		
+		HttpSession session = request.getSession();
+		
+		session.getAttribute("adminId");
+		
+		return "redirect:/adminBoard";
 	}
 	
 	//관리자 게시판 조회

@@ -4,10 +4,11 @@
 <html lang="en">
 
 <head>
-<title>ITKey 게시판</title>
+<title>ITKey 관리자 게시판</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="resources/images/icons/favicon.ico" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.origin.min.css">
 <link rel="stylesheet" type="text/css" href="resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="resources/fonts/iconic/css/material-design-iconic-font.min.css">
@@ -20,7 +21,7 @@
 <link rel="stylesheet" type="text/css" href="resources/css/table.css">
 <link rel="stylesheet" type="text/css" href="resources/vendor/fontawesome-free-5.8.2-web/css/all.min.css">
 
-<script src="resources/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!-- <script src="resources/vendor/jquery/jquery-3.2.1.min.js"></script> -->
 <script src="resources/vendor/animsition/js/animsition.min.js"></script>
 <script src="resources/vendor/bootstrap/js/popper.js"></script>
 <script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -33,7 +34,7 @@
 </head>
 
 <body>
-
+	
 	<div class="limiter animsition">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -97,7 +98,7 @@
 							<table class="table table-hover">
 								<thead>
 									<tr>
-										<th style="width: 5%;"><input type="checkbox" /></th>
+										<th style="width: 5%;"><input type="checkbox" id="allChk" onclick="allChk(this);" /></th>
 										<th style="width: 7%;">순번</th>
 										<th style="width: 9%;">작성자</th>
 										<th style="width: 5%;">공개</th>
@@ -111,7 +112,7 @@
 								<c:forEach items="${list }" var="list" varStatus="status">
 									<tr>
 										<td>
-											<input type="checkbox" />
+											<input type="checkbox" name="RowCheck" value="${list.boardWriter}"/>
 										</td>
 										<td>${status.count }</td>
 										<td>${list.boardWriter }</td>
@@ -128,7 +129,7 @@
 										<td><a href="/sam/detail?boardIdx=${list.boardIdx}">${list.boardTitle }</a></td>
 										<td><fmt:formatDate pattern="yyyy-MM-dd" value="${list.boardWriteDate}"/></td>
 										<td>
-											<button class="btn btn-default btn-full">삭제</button>
+											<input type="button" onclick="adminDelete();" class="btn btn-default btn-full" value="삭제">
 										</td>
 									</tr>
 								</c:forEach>
@@ -160,6 +161,68 @@
 		</div>
 	</div>
 	<div id="dropDownSelect1"></div>
+	<script type="text/javascript">
+	//체크박스 전체선택
+	  function allChk(obj){
+	      var chkObj = document.getElementsByName("RowCheck");
+	      var rowCnt = chkObj.length - 1;
+	      var check = obj.checked;
+	      if (check) {﻿
+	          for (var i=0; i<=rowCnt; i++){
+	           if(chkObj[i].type == "checkbox")
+	               chkObj[i].checked = true;
+	          }
+	      } else {
+	          for (var i=0; i<=rowCnt; i++) {
+	           if(chkObj[i].type == "checkbox"){
+	               chkObj[i].checked = false;
+	           }
+	          }
+	      }
+	  } 
+	  
+	
+	
+	
+ 	  function adminDelete(){
+		  var url = "adminDelete";
+		  var valueArr = new Array();
+		  var list = $("input[name='RowCheck']");
+		  for(var i=0; i<list.length; i++){
+			  valueArr.push(list[i].value);
+		  }
+	  }
+	  if(valueArr.length == 0){
+		  alert("글을 선택해 주세요");
+	  }else{
+		  var chk = confirm("정말 삭제하시겠습니까?")
+		  $.ajax({
+			  url : url,
+			  type : 'POST',
+			  traditional : true,
+			  data : {
+				  valueArr : valueArr
+			  },
+			  success: function(jdata){
+				  if(jdata = 1){
+					  alert("삭제 완료");
+					  location.replace("adminBoard")
+				  }else{
+					  alert("삭제 실패");
+				  }
+			  }
+		  })
+		  
+	  }
+	  
+	  
+
+	  
+		
+	</script>
+	
+
+	
 </body>
 
 </html>
