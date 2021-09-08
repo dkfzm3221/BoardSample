@@ -1,10 +1,8 @@
 package com.itkey.sam.board.model.dao;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+import javax.inject.Inject;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -20,7 +18,8 @@ import com.itkey.sam.board.dto.UserDTO;
 public class UserDAOImpl implements UserDAO {
 	
 		private final Logger logger = LoggerFactory.getLogger(this.getClass());
-		@Autowired private SqlSessionTemplate sqlSession;
+		@Autowired
+		private SqlSessionTemplate sqlSession;
 		
 		//회원가입
 		public int userJoin(UserDTO dto) throws Exception{

@@ -17,21 +17,22 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter{
 
 		HttpSession session = request.getSession();
 		
+		Object obj = session.getAttribute("id");
+		Object adminObj = session.getAttribute("adminId");
 		
+		System.out.println("admin : " + adminObj);
+		System.out.println("user : " + obj);
 		
-/*		System.out.println("boardWriter : " +  boardWriter);*/
-		
-		if(session != null) {
-			UserDTO boardWriter = (UserDTO) session.getAttribute("boardWriter");
-			/*	response.sendRedirect("/sam/main");*/
-				if(boardWriter == null) {
-					response.sendRedirect("/sam/login");
-					return false;
-				}
+		if(obj == null && adminObj == null) {
+			
+			response.sendRedirect("/sam/login");
+			return false;
 		}
-		
-		return true;
 	
+		return true;
+		
+		
+
 	}
 	
    @Override

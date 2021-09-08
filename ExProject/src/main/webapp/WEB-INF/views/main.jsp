@@ -202,7 +202,6 @@
 			$('#page-next').addClass('disabled');
 		}
 		var thisPage = '${pageMaker.cri.page}';
-
 		$('#page'+thisPage).addClass('active');
 	})
 	
@@ -211,14 +210,11 @@
 		var $perPageSel = $('#perPageSel');
 		var thisPage = '${pageMaker.cri.page}';
 		$perPageSel.val(perPageNum).prop("selected",true);
-
 		$perPageSel.on('change',function(){
-
 			window.location.href = "/sam/main?page="+thisPage+"&perPageNum="+$perPageSel.val();
 		})
 }
 	
-
  	function setSearchTypeSelect(){
 		var $searchTypeSel = $('#searchType');
 		var $keyword = $('#keyword');

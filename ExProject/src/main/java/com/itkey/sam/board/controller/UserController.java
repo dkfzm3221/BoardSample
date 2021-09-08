@@ -123,7 +123,6 @@ public class UserController {
 		
 		html.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = html.getWriter();
-		HttpSession session = request.getSession();
 		int result = userService.userLogin(dto);
 
 		//1.아이디가 존재하는지 검사
@@ -141,6 +140,7 @@ public class UserController {
 					+ "</script>";
 			
 			out.print(body);
+			HttpSession session = request.getSession();
 			
 			
 			session.setAttribute("id", dto.getBoardWriter());
