@@ -102,9 +102,16 @@
 						</div>
 					</div>
 					<div class="row">
+					<c:if test="${adminId eq 'admin'}">
+						<div class="col-sm-2">
+							<button type="button" class="btn btn-default btn-full" onclick="location.href='/sam/adminBoard';">목록</button>
+						</div>
+					</c:if>
+					<c:if test="${id ne null}">
 						<div class="col-sm-2">
 							<button type="button" class="btn btn-default btn-full" onclick="location.href='/sam/main';">목록</button>
 						</div>
+					</c:if>
 						<div class="col-sm-6"></div>
 						<c:if test="${id eq list.boardWriter}">
 							<div class="col-sm-2">

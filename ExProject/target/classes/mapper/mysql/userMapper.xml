@@ -153,13 +153,7 @@
 		WHERE
 			BOARD_WRITER = #{boardWriter}
 	</delete>
-	<delete id="adminDelete">
-		
-	</delete>
-
-
-
-
+	
 
 
 

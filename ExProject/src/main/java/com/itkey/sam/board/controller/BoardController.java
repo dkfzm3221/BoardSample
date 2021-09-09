@@ -225,6 +225,7 @@ public class BoardController {
 		HttpSession session = request.getSession();
 		
 		session.getAttribute("adminId");
+		boardService.deleteBoard(boardIdx);
 		
 		return "redirect:/adminBoard";
 	}

@@ -129,7 +129,7 @@
 										<td><a href="/sam/detail?boardIdx=${list.boardIdx}">${list.boardTitle }</a></td>
 										<td><fmt:formatDate pattern="yyyy-MM-dd" value="${list.boardWriteDate}"/></td>
 										<td>
-											<input type="button" onclick="adminDelete();" class="btn btn-default btn-full" value="삭제">
+											<button type="submit" class="btn btn-default btn-full">삭제</button>
 										</td>
 									</tr>
 								</c:forEach>
@@ -183,7 +183,7 @@
 	  
 	
 	
-	
+/* 	
  	  function adminDelete(){
 		  var url = "adminDelete";
 		  var valueArr = new Array();
@@ -214,7 +214,7 @@
 		  })
 		  
 	  }
-	  
+	   */
 	  
 
 	  

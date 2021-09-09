@@ -54,10 +54,7 @@ public interface BoardService {
 	
 	//게시물 삭제
 	public void deleteBoard(int boardIdx) throws Exception;
-	
-	//관리자 게시물 삭제
-	public void adminDelete(String no) throws Exception;
-	
+
 	//게시물 총 갯수
 	public int count() throws Exception;
 	

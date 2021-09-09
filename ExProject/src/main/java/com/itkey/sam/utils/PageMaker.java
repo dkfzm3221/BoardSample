@@ -101,32 +101,19 @@ public class PageMaker {
 	}
 	
 	
-	//URI
+	//URI 유지시켜줌
 	public String makeQuery(int page) {
-		UriComponents uriComponents = UriComponentsBuilder.newInstance()
-				.queryParam("page", page)
-				.queryParam("perPageNum", this.cri.getPerPageNum())
-				.build()
-				.encode();
-				
-		return uriComponents.toString();
-	}
-	public String makeQuerySearch(boolean needSearch) {
-		UriComponents uriComponents = UriComponentsBuilder.newInstance()
+		UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.newInstance()
+			.queryParam("page", page)
+			.queryParam("perPageNum", this.cri.getPerPageNum());
+		//검색 한 경우		
+		if (this.cri.getSearchType() != null) {
+			uriComponentsBuilder
 				.queryParam("searchType", this.cri.getSearchType())
-				.queryParam("perPageNum", this.cri.getKeyword())
-				.build()
-				.encode();
-			
-		return uriComponents.toString();
-				
-					
+				.queryParam("keyword", this.cri.getKeyword());
+		}
+		return uriComponentsBuilder.build().encode().toString();
 	}
-	
-		
-	
-	
-	
 	
 	
 	

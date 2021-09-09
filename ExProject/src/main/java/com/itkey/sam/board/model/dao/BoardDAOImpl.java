@@ -132,8 +132,6 @@ public class BoardDAOImpl implements BoardDAO {
 		
 	}
 	
-	
-	
 	//페이징
 	@Override
 	public List<BoardDTO> listPage(Criteria cri) throws Exception {
@@ -154,17 +152,5 @@ public class BoardDAOImpl implements BoardDAO {
 		
 		return sqlSession.selectList("listUser", cri);
 	}
-
-	@Override
-	public void adminDelete(String no) throws Exception {
-		
-		sqlSession.delete("adminDelete", no);
-		
-	}
-
-
-
-
-	
 
 }

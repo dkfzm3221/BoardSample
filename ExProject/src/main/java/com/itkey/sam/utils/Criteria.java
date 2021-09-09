@@ -4,7 +4,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.itkey.sam.board.dto.BoardDTO;
 
-public class Criteria extends BoardDTO{
+public class Criteria{
 	private int page;
 	private int perPageNum;
 	private String searchType;
@@ -30,6 +30,9 @@ public class Criteria extends BoardDTO{
 	public Criteria() {
 		this.page = 1;
 		this.perPageNum = 10;
+		this.searchType = null;
+		this.keyword = null;
+		
 	}
     
 	//pageStart를 반환
@@ -59,38 +62,28 @@ public class Criteria extends BoardDTO{
 	}
 
 
+	
+	//URI
+
+	public String makeQuery() {
+		UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.newInstance()
+				.queryParam("page", page)
+				.queryParam("perPageNum", this.perPageNum);
+				
+		if (searchType!=null) {
+			uriComponentsBuilder
+					.queryParam("searchType", this.searchType)
+					.queryParam("keyword", this.keyword);
+		}
+		return uriComponentsBuilder.build().encode().toString();
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Criteria [page=" + page + ", perPageNum=" + perPageNum + ", searchType=" + searchType + ", keyword="
 				+ keyword + "]";
 	}
-	
-	
-	//URI
-
-	public String makeQuery() {
-		return UriComponentsBuilder.newInstance()
-				.queryParam("page", page)
-				.queryParam("perPageNum", this.perPageNum)
-				.build().encode().toString();
-	}
-	
-	
-	public String makeQuerySearch() {
-		return UriComponentsBuilder.newInstance()
-				.queryParam("searchType", this.searchType)
-				.queryParam("keyword", this.keyword)
-				.build().encode().toString();
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

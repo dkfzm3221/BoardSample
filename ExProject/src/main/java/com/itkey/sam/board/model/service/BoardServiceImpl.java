@@ -153,19 +153,6 @@ public class BoardServiceImpl implements BoardService {
 		return dao.listUser(cri);
 	}
 
-	@Override
-	public void adminDelete(String no) throws Exception {
-		dao.adminDelete(no);
-		
-	}
 
-
-	
-	
-	
-	
-	
-	
-	
 
 }
