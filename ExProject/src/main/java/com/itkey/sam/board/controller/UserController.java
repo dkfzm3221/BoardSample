@@ -125,6 +125,7 @@ public class UserController {
 		PrintWriter out = html.getWriter();
 		int result = userService.userLogin(dto);
 
+		
 		//1.아이디가 존재하는지 검사
 		//2.만약 아이디가 존재 할 경우 조건문 실행
 		//2-1 조건문 암호가 같을경우 -> 메인으로 리턴 

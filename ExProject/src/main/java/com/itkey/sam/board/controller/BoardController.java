@@ -72,8 +72,6 @@ public class BoardController {
 		System.out.println("끝페이지 : " + pageMaker.getEndPage());
 		System.out.println("현재페이지지지 : " + pageMaker.getStartPage());
 		
-		
-/*				------------------------------*/
 		ModelAndView mv = new ModelAndView("main");
 		BoardDTO eDTO = new BoardDTO();
 
@@ -218,17 +216,14 @@ public class BoardController {
 		return "redirect:/main";
 	}
 	
-	//관리자 게시물 삭제
+	/*//관리자 게시물 삭제
 	@RequestMapping(value = "/adminDelete", method = RequestMethod.GET)
-	public String adminDelete(@RequestParam("boardIdx") int boardIdx, HttpServletRequest request) throws Exception{
+	public String adminDelete(@RequestParam("boardIdx") int boardIdx) throws Exception{
 		
-		HttpSession session = request.getSession();
-		
-		session.getAttribute("adminId");
 		boardService.deleteBoard(boardIdx);
 		
 		return "redirect:/adminBoard";
-	}
+	}*/
 	
 	//관리자 게시판 조회
 	@RequestMapping(value = "/adminBoard")
@@ -316,12 +311,13 @@ public class BoardController {
 		return "/adminUser";
 	}
 	
+	//채팅
 	@RequestMapping(value= "/chat", method=RequestMethod.GET)
 	public String chat(HttpServletRequest request, HttpServletResponse response, Model model, UserDTO dto) throws Exception{
-		
-		
+
 		return "/chat";
 	}
+	
 	
 	
 	

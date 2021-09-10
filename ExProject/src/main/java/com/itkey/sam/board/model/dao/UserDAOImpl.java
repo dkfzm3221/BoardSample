@@ -104,6 +104,13 @@ public class UserDAOImpl implements UserDAO {
 			sqlSession.delete("adminDelete", dto);
 			
 		}
+		
+		//getSalt
+		@Override
+		public String getSaltById(String salt) throws Exception {
+			
+			return sqlSession.selectOne("getSalt", salt);
+		}
 
 		
 }

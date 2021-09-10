@@ -13,6 +13,7 @@ import com.itkey.sam.board.dto.AdminDTO;
 import com.itkey.sam.board.dto.FileDTO;
 import com.itkey.sam.board.dto.UserDTO;
 import com.itkey.sam.board.model.dao.UserDAO;
+import com.itkey.sam.utils.SecurityUtils;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -24,6 +25,16 @@ public class UserServiceImpl implements UserService {
 	
 	//회원가입
 	public int userJoin(UserDTO dto) throws Exception {
+		
+		//salt값 세팅
+		String salt = SecurityUtils.generateSalt();
+		dto.setSalt(salt);
+		
+		String password = dto.getBoardWriterPw();
+		password = SecurityUtils.getEncrypt(password, salt);
+		
+		dto.setBoardWriterPw(password);
+		
 		int result = dao.userJoin(dto);
 		return result;
 	}
@@ -32,8 +43,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int userLogin(UserDTO dto) throws Exception {
 		
-			
+		String salt = dao.getSaltById(dto.getBoardWriter());
+		
+		String password = dto.getBoardWriterPw();
+		
+		password = SecurityUtils.getEncrypt(password, salt);
+		dto.setBoardWriterPw(password);
+		
 		int result = dao.userLoginChk(dto);
+
 
 		
 		if (result != 1) {
@@ -82,6 +100,7 @@ public class UserServiceImpl implements UserService {
 	public int adminLogin(AdminDTO dto) throws Exception {
 		
 		int result = dao.adminLoginChk(dto);
+		
 
 		if (result != 1) {
 			
@@ -122,6 +141,13 @@ public class UserServiceImpl implements UserService {
 	public void adminDelete(UserDTO dto) throws Exception {
 		
 		dao.adminDelete(dto);
+	}
+	
+	//getSalt
+	@Override
+	public String getSaltById(String salt) throws Exception {
+		
+		return dao.getSaltById(salt);
 	}
 
 

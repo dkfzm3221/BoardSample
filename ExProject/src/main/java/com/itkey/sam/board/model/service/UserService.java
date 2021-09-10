@@ -35,6 +35,8 @@ public interface UserService {
 	//회원강퇴
 	public void adminDelete(UserDTO dto) throws Exception;
 
+	//getSalt
+	public String getSaltById(String salt) throws Exception;
 
 
 }

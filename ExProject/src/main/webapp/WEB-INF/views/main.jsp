@@ -236,16 +236,13 @@
 				alert("검색어는 2자 이상입니다.");
 				$('#keyword').focus();
 				return;
-				
 			}
-		
 			var url = "/sam/main?page=1"
 					+ "&perPageNum=" + "${pageMaker.cri.perPageNum}"
 					+ "&searchType=" + searchTypeVal
 					+ "&keyword=" + encodeURIComponent(keywordVal);
 					
 					window.location.href = url;
-					
 		})
 	} 
  	

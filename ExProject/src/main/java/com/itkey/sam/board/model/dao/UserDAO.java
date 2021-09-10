@@ -40,6 +40,9 @@ public interface UserDAO {
 	
 	//회원 강퇴
 	public void adminDelete(UserDTO dto) throws Exception;
+	
+	//get salt
+	public String getSaltById(String salt) throws Exception;
 
 	
 } 

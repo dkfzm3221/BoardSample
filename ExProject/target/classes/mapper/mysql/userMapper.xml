@@ -153,7 +153,15 @@
 		WHERE
 			BOARD_WRITER = #{boardWriter}
 	</delete>
-	
+	<select id="getSalt" resultType="String">
+		SELECT 
+			SALT
+		FROM 
+			sample_writer_tb 
+		WHERE 
+			BOARD_WRITER = ${boardWriter}
+		
+	</select>
 
 
 
