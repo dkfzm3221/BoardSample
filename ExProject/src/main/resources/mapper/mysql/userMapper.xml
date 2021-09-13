@@ -160,7 +160,6 @@
 			sample_writer_tb 
 		WHERE 
 			BOARD_WRITER = #{boardWriter}
-		
 	</select>
 
 

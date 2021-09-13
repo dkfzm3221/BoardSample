@@ -122,31 +122,27 @@
 		</thead>
 		<tbody>
 			<c:forEach items="${list }" var="list" varStatus="status">
-	
 			<tr>
 				<c:choose>
 				<c:when test="${list.boardPublicFl eq 'N'}"> <!-- N 비공개 -->
 					<td>${status.count }</td>
 					<td>${list.boardWriter }</td>
-					<c:if test="${id ne list.boardWriter}">
 						<td>
-							<i class="fas fa-lock"></i>
-						</td> 
+						<i class="fas fa-lock"></i>
+					</td> 
+					<c:if test="${id ne list.boardWriter}">
 							<td>비밀글 입니다.</td>
 							<td>비밀글 입니다.</td>
 					</c:if>
-					<c:if test="${id eq list.boardWriter} "> 
-						<td>
-							<i class="fas fa-lock"></i>
-						</td> 
+					<c:if test="${id eq list.boardWriter}">
 						<td><a href="/sam/detail?boardIdx=${list.boardIdx}">${list.boardTitle }</a></td>
 						<td>${list.boardContents}</td>
-					</c:if>  
+					</c:if>
 					<td>${list.boardViewCount }</td> 
 				</c:when>
 				<c:otherwise>
 					<td>${status.count }</td>
-					<td>${list.boardWriter }</td>
+					<td>${list.boardWriter }</td> 
 					<c:if test="${list.boardPublicFl eq 'Y'}">
 						<td>
 							<i class="fas fa-lock-open"></i>
