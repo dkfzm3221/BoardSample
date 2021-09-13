@@ -69,8 +69,9 @@ public class BoardController {
 		
 		pageMaker.setTotalCount(totalCount);
 		
+	/*	
 		System.out.println("끝페이지 : " + pageMaker.getEndPage());
-		System.out.println("현재페이지지지 : " + pageMaker.getStartPage());
+		System.out.println("현재페이지지지 : " + pageMaker.getStartPage());*/
 		
 		ModelAndView mv = new ModelAndView("main");
 		BoardDTO eDTO = new BoardDTO();
@@ -158,11 +159,7 @@ public class BoardController {
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
-		
 
-		boardService.fileName(fDto);
-		
-		
 		return "redirect:/main";
 	}
 	
@@ -170,12 +167,20 @@ public class BoardController {
 	@RequestMapping(value = "/detail")
 	public void detail(BoardDTO dto, Model model, @ModelAttribute("cri") Criteria cri) throws Exception{
 		
+		FileDTO fDto = new FileDTO();
 		List<BoardDTO> detail = boardService.getBoardList(dto);
 		
-
+		/*int fileIdx = boardService.getFileIdx(fDto);
+		fDto.setFileIdx(fileIdx);
 		
+		int boardIdx = boardService.boardFileIdx(dto);
+		dto.setBoardIdx(boardIdx);
+		*/
+		
+	
 		BoardDTO pDto = boardService.pagePre(dto.getBoardIdx());
 		BoardDTO nDto = boardService.pageNext(dto.getBoardIdx());
+
 
 		
 		model.addAttribute("list", detail.get(0));

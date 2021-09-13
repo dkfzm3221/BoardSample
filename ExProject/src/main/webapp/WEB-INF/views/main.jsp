@@ -127,14 +127,14 @@
 				<c:when test="${list.boardPublicFl eq 'N'}"> <!-- N 비공개 -->
 					<td>${status.count }</td>
 					<td>${list.boardWriter }</td>
-						<td>
+					<td>
 						<i class="fas fa-lock"></i>
 					</td> 
 					<c:if test="${id ne list.boardWriter}">
-							<td>비밀글 입니다.</td>
-							<td>비밀글 입니다.</td>
+						<td style="color:black">비밀글 입니다. 작성자와 관리자만 볼 수있습니다.</td>
+						<td style="color:black">비밀글 입니다. 작성자와 관리자만 볼 수있습니다.</td>
 					</c:if>
-					<c:if test="${id eq list.boardWriter}">
+					<c:if test="${id eq list.boardWriter or admin eq 'admin'}">
 						<td><a href="/sam/detail?boardIdx=${list.boardIdx}">${list.boardTitle }</a></td>
 						<td>${list.boardContents}</td>
 					</c:if>

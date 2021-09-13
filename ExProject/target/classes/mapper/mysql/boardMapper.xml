@@ -88,7 +88,7 @@
 		<selectKey resultType="int" keyProperty="fileIdx" order="AFTER"><![CDATA[ SELECT LAST_INSERT_ID() ]]></selectKey>
 	</insert>
 	<!-- 파일업로드 -->
-	<select id="fileName" parameterType="FileDTO" resultType="FileDTO">
+	<select id="getFileIdx" parameterType="FileDTO" resultType="FileDTO">
 		SELECT 
 			*
 		FROM 

@@ -117,20 +117,6 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.insert("insertFile", dto);
 	}
 	
-	//업로드 파일 이름 뿌리기
-	@Override
-	public FileDTO fileName(FileDTO dto) throws Exception {
-		FileDTO fDto  = sqlSession.selectOne("fileName", dto);
-		
-		return fDto;
-	}
-
-	//업로드 파일 이름 뿌리기
-	@Override
-	public FileDTO boardFileIdx(int fileIdx) throws Exception {
-		return sqlSession.selectOne("boardFileIdx", fileIdx);
-		
-	}
 	
 	//페이징
 	@Override
@@ -151,6 +137,18 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<UserDTO> listUser(Criteria cri) throws Exception {
 		
 		return sqlSession.selectList("listUser", cri);
+	}
+
+	@Override
+	public int getFileIdx(FileDTO dto) throws Exception {
+		
+		return sqlSession.selectOne("getFileIdx", dto);
+	}
+
+	@Override
+	public int boardFileIdx(BoardDTO dto) throws Exception {
+		
+		return sqlSession.selectOne("boardFileIdx", dto);
 	}
 
 }

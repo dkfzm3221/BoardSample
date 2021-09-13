@@ -74,12 +74,6 @@ public interface BoardDAO {
 	//파일 업로드
 	public int insertFile(FileDTO dto) throws Exception;
 	
-	//파일 이름
-	public FileDTO fileName(FileDTO dto) throws Exception;
-	
-	//파일이름
-	public FileDTO boardFileIdx(int fileIdx) throws Exception;
-	
 	//페이징
 	public List<BoardDTO> listPage(Criteria cri) throws Exception;
 	
@@ -89,6 +83,10 @@ public interface BoardDAO {
 	//유저 페이징
 	public List<UserDTO> listUser(Criteria cri) throws Exception;
 	
+	//파일이름
+	public int getFileIdx(FileDTO dto) throws Exception;
+	
+	public int boardFileIdx(BoardDTO dto) throws Exception;
 	
 	
 	

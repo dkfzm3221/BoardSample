@@ -106,18 +106,19 @@
 							<button type="button" class="btn btn-default btn-full" onclick="location.href='/sam/adminBoard';">목록</button>
 						</div>
 					</c:if>
-						<div class="col-sm-2">
-							<button type="button" class="btn btn-default btn-full" onclick="location.href='/sam/main';">목록</button>
-						<div class="col-sm-6"></div>
+					<div class="col-sm-2">
+						<button type="button" class="btn btn-default btn-full" onclick="location.href='/sam/main';">목록</button>
+					</div>
+					<div class="col-sm-6">
 						<c:if test="${id eq list.boardWriter}">
-							<div class="col-sm-2">
-								<button type="button" class="btn btn-default btn-full" onclick="location.href='/sam/update?boardIdx=${list.boardIdx}';">수정</button>
+							<div class="col-sm-2" style="float: right;">
+								<button  type="button" class="btn btn-default btn-full" onclick="location.href='/sam/update?boardIdx=${list.boardIdx}';">수정</button>
 							</div>
 						</c:if>
 						<c:if test="${id eq list.boardWriter}">
-						<div class="col-sm-2">
-							<button type="button" class="btn btn-default btn-full" onclick="deleteChk()">삭제</button>
-						</div>
+							<div class="col-sm-2" style="float: right;">
+								<button type="button" class="btn btn-default btn-full" onclick="deleteChk()">삭제</button>
+							</div>
 						</c:if>
 					</div>
 				</div>

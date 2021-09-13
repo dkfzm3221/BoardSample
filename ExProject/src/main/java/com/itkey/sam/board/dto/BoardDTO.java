@@ -12,7 +12,7 @@ public class BoardDTO {
 	private int todayCount			 = 0;
 	private int todayUser			 = 0;
 	private int boardIdx        	 = 0;
-	private int fileIdx          	 ;
+	private int fileIdx          	 = 0;
 	
 	private String boardWriter       = null;
 	private String boardTitle        = null;

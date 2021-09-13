@@ -116,21 +116,6 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 	
-	//파일이름
-	@Override
-	public FileDTO fileName(FileDTO dto) throws Exception {
-		
-		return dao.fileName(dto);
-		
-	}
-	
-	//파일이름
-	@Override
-	public FileDTO boardFileIdx(int fileIdx) throws Exception {
-		
-		return dao.boardFileIdx(fileIdx);
-		
-	}
 	
 	//페이징
 	@Override
@@ -151,6 +136,18 @@ public class BoardServiceImpl implements BoardService {
 	public List<UserDTO> listUser(Criteria cri) throws Exception {
 		
 		return dao.listUser(cri);
+	}
+
+	@Override
+	public int getFileIdx(FileDTO dto) throws Exception {
+		
+		return dao.getFileIdx(dto);
+	}
+
+	@Override
+	public int boardFileIdx(BoardDTO dto) throws Exception {
+	
+		return dao.boardFileIdx(dto);
 	}
 
 
