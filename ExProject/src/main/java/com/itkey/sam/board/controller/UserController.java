@@ -121,6 +121,9 @@ public class UserController {
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public void userLogin(UserDTO dto, HttpServletRequest request, Model model, HttpServletResponse html) throws Exception {
 		
+		
+		
+		
 		html.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = html.getWriter();
 		int result = userService.userLogin(dto);

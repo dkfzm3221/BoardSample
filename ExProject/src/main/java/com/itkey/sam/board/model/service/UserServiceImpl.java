@@ -50,6 +50,7 @@ public class UserServiceImpl implements UserService {
 		password = SecurityUtils.getEncrypt(password, salt);
 		dto.setBoardWriterPw(password);
 		
+		
 		int result = dao.userLoginChk(dto);
 
 
@@ -57,7 +58,7 @@ public class UserServiceImpl implements UserService {
 		if (result != 1) {
 			return 3;
 		} else {
-
+		
 			UserDTO lDto = dao.userLogin(dto);
 
 			if (lDto.getBoardWriter().equals(dto.getBoardWriter())
@@ -74,6 +75,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int idCheck(UserDTO dto) throws Exception {
+		
+
+		
 		int result = dao.idCheck(dto);
 		return result;
 	}
