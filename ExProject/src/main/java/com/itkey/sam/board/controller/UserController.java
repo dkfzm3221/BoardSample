@@ -202,6 +202,19 @@ public class UserController {
 		userService.userDelete(dto);
 		
 		return "/login";
+	} 
+	@RequestMapping(value="adminUserDelete")
+	public String adminUserDelete(HttpServletRequest request) throws Exception{
+		
+		String[] ajaxMsg = request.getParameterValues("valueArr");
+		int size = ajaxMsg.length;
+		for(int i=0; i<size; i++) {
+			
+			userService.adminUserDelete(ajaxMsg[i]);
+		}
+		
+		
+		return "redirect:/adminUser";
 	}
 
 	//로그아웃

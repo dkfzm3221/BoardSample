@@ -98,18 +98,19 @@ public class UserDAOImpl implements UserDAO {
 			return sqlSession.insert("insertProfile", dto);
 		}
 		
-		//회원 강퇴
-		@Override
-		public void adminDelete(UserDTO dto) throws Exception {
-			sqlSession.delete("adminDelete", dto);
-			
-		}
+
 		
 		//getSalt
 		@Override
 		public String getSaltById(String salt) throws Exception {
 			
 			return sqlSession.selectOne("getSalt", salt);
+		}
+
+		@Override
+		public void adminUserDelete(String boardWriterIdx) throws Exception {
+			sqlSession.delete("adminUserDelete", boardWriterIdx);
+			
 		}
 
 		

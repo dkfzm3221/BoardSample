@@ -314,6 +314,7 @@ public class BoardController {
 		return "/chat";
 	}
 	
+	//관리자 게시물 삭제
 	@RequestMapping(value="/adminDelete")
 	public String adminDelete(HttpServletRequest request) throws Exception{
 		

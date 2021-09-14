@@ -29,6 +29,9 @@ public interface UserDAO {
 	//회원 탈퇴
 	public void userDelete(UserDTO dto) throws Exception;
 	
+	public void adminUserDelete(String boardWriterIdx) throws Exception;
+	
+	
 	//관리자 로그인
 	public AdminDTO adminLogin(AdminDTO dto) throws Exception;
 	
@@ -37,9 +40,6 @@ public interface UserDAO {
 	
 	//프로필 이미지 
 	public int insertProfile(FileDTO dto) throws Exception;
-	
-	//회원 강퇴
-	public void adminDelete(UserDTO dto) throws Exception;
 	
 	//get salt
 	public String getSaltById(String salt) throws Exception;

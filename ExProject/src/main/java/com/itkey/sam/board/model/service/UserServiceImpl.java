@@ -139,17 +139,18 @@ public class UserServiceImpl implements UserService {
 		return dao.insertProfile(dto);
 	}
 
-	@Override
-	public void adminDelete(UserDTO dto) throws Exception {
-		
-		dao.adminDelete(dto);
-	}
-	
 	//getSalt
 	@Override
 	public String getSaltById(String salt) throws Exception {
 		
 		return dao.getSaltById(salt);
+	}
+
+	@Override
+	public void adminUserDelete(String boardWriterIdx) throws Exception {
+		
+		dao.adminUserDelete(boardWriterIdx);
+		
 	}
 
 
