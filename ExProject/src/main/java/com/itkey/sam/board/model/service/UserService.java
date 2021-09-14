@@ -32,6 +32,7 @@ public interface UserService {
 	//프로필 이미지
 	public int insertProfile(FileDTO dto) throws Exception;
 	
+	//회원강퇴
 	public void adminUserDelete(String boardWriterIdx) throws Exception;
 
 	//getSalt

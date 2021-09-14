@@ -106,7 +106,8 @@ public class UserDAOImpl implements UserDAO {
 			
 			return sqlSession.selectOne("getSalt", salt);
 		}
-
+		
+		//회원강퇴
 		@Override
 		public void adminUserDelete(String boardWriterIdx) throws Exception {
 			sqlSession.delete("adminUserDelete", boardWriterIdx);

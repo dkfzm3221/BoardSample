@@ -145,7 +145,8 @@ public class UserServiceImpl implements UserService {
 		
 		return dao.getSaltById(salt);
 	}
-
+	
+	//회원강퇴
 	@Override
 	public void adminUserDelete(String boardWriterIdx) throws Exception {
 		

@@ -203,6 +203,8 @@ public class UserController {
 		
 		return "/login";
 	} 
+	
+	//회원강퇴
 	@RequestMapping(value="adminUserDelete")
 	public String adminUserDelete(HttpServletRequest request) throws Exception{
 		

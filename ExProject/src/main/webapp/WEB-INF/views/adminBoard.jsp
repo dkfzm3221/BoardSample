@@ -44,7 +44,7 @@
 					<div class="row panel-row">
 						<div class="col-sm-3">
 							<div class="overview-div">
-								<h5 class="overview-title">총 게시글 수</h5>
+								<h5 class="overview-title">총 </h5>
 								<h1 class="overview-content">${pageNum}</h1>
 								<i class="far fa-file-alt"></i>
 							</div>
@@ -129,7 +129,7 @@
 										<td><a href="/sam/detail?boardIdx=${list.boardIdx}">${list.boardTitle }</a></td>
 										<td><fmt:formatDate pattern="yyyy-MM-dd" value="${list.boardWriteDate}"/></td>
 										<td>
-											<button type="button" onclick="adminDelete()" class="btn btn-default btn-full">삭제</button>
+											<button type="button" onclick="deleteValue();" class="btn btn-default btn-full">삭제</button>
 										</td>
 									</tr>
 								</c:forEach>

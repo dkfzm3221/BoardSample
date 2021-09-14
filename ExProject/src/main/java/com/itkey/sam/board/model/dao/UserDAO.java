@@ -29,6 +29,7 @@ public interface UserDAO {
 	//회원 탈퇴
 	public void userDelete(UserDTO dto) throws Exception;
 	
+	//회원강퇴
 	public void adminUserDelete(String boardWriterIdx) throws Exception;
 	
 	

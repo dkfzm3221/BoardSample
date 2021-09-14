@@ -70,7 +70,7 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-4">
-							<input type="button" onclick="deleteValue();" class="btn btn-default" value="선택강퇴">
+							<input type="button" onclick="deleteValue();" class="btn btn-default" value="회원강퇴">
 							<button type="button" onclick="location.href='/sam/adminBoard'" class="btn btn-default">게시판관리</button>
 						</div>
 						<div class="col-sm-2"></div>
@@ -101,7 +101,7 @@
 										<th style="width: 5%;">이름</th>
 										<th style="width: 10%;">핸드폰</th>
 										<th style="width: 10%;">이메일</th>
-										<th style="width: 5%;">탈퇴</th>
+										<th style="width: 5%;">강퇴</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -115,7 +115,7 @@
 											<td>${list.boardWriterPhone }</td>
 											<td>${list.boardWriterEmail }</td>
 											<td>
-												<button type="button" onclick="adminDelete()"class="btn btn-default btn-full">탈퇴</button>
+												<button type="button" onclick="deleteValue();" class="btn btn-default btn-full">강퇴</button>
 											</td>
 										</tr>
 									</c:forEach>
