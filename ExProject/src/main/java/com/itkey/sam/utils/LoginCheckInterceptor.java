@@ -28,7 +28,7 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter{
 			response.sendRedirect("/sam/login");
 			return false;
 		}
-		
+		 
 /*		if(obj != null && adminObj == null) {
 			response.sendRedirect("/sam/login");
 			return false;
