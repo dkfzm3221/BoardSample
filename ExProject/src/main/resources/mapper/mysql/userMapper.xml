@@ -95,18 +95,18 @@
 			BOARD_WRITER = #{boardWriter}
 	</select>
 	
-	<select id="listUser" resultType="UserDTO">
-		SELECT
-			*
-		FROM
-			sample_writer_tb
-		WHERE 
-			BOARD_WRITER_IDX > 0
-		<include refid="searchCondition"></include>	
-		ORDER BY
-			BOARD_WRITER_IDX DESC
-		LIMIT
-			#{pageStart}, #{perPageNum}
+	 <select id="listUser" resultType="UserDTO">
+			SELECT
+				*
+			FROM
+				sample_writer_tb
+			WHERE
+				BOARD_WRITER_IDX > 0
+			<include refid="searchContainer"></include>
+			ORDER BY 
+				BOARD_WRITER_IDX DESC
+			LIMIT #{pageStart}, #{perPageNum}
+			
 	</select>
 
 	<!-- 총 가입자 수 -->
@@ -115,6 +115,7 @@
 		 	count(*)
 		 FROM 
 		 	sample_writer_tb
+ 		<include refid="searchContainer"></include>
 	</select>
 	
 	<!-- 오늘 게시물 수 -->
@@ -162,7 +163,38 @@
 			BOARD_WRITER = #{boardWriter}
 	</select>
 
-
+	<select id="totalUserCount" resultType="int">
+		SELECT
+			COUNT(BOARD_WRITER_IDX)
+		FROM
+			sample_writer_tb
+		WHERE
+			BOARD_WRITER_IDX > 0
+		<include refid="searchContainer"></include>
+	</select> 
+	
+	<sql id="searchContainer">
+		<if test="searchType != null">
+			<if test="searchType == 'c'.toString()">
+				AND 
+					BOARD_WRITER_NAME LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'w'.toString()">
+				AND 
+					BOARD_WRITER LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'all'.toString()">
+				AND
+					BOARD_WRITER_NAME LIKE CONCAT('%', #{keyword}, '%')
+						OR
+					BOARD_WRITER LIKE CONCAT('%', #{keyword}, '%')
+						OR
+					BOARD_WRITER_PHONE LIKE CONCAT('%', #{keyword}, '%')
+						OR
+					BOARD_WRITER_EMAIL LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+		</if>
+	</sql>
 
 
 </mapper>

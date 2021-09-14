@@ -181,6 +181,7 @@
 			BOARD_IDX > 0
 		<include refid="searchCondition"></include>
 	</select>
+	
 	<sql id="searchCondition">
 		<if test="searchType != null">
 			<if test="searchType == 'c'.toString()">

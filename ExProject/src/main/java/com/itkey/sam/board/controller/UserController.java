@@ -281,21 +281,7 @@ public class UserController {
 		}
 	}
 	
-/*	//관리자 - 회원강퇴
-	@RequestMapping(value="/adminDelete", method = RequestMethod.GET)
-	public String getAdminDelete(HttpSession session) throws Exception{
-		UserDTO dto = new UserDTO();
 
-		userService.adminDelete(dto);
-	
-		
-		return "/adminUser";
-	}
-	
-	
-	
-	*/
-	
 	
 	
 	

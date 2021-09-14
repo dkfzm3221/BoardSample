@@ -77,8 +77,8 @@
 						<div class="col-sm-2">
 							<select class="form-control" id="searchType" name="searchType">
 								<option value="all">전체</option>
-								<option value="i">아이디</option>
-								<option value="n">이름</option>
+								<option value="w">아이디</option>
+								<option value="c">이름</option>
 							</select>
 						</div>
 						<div class="col-sm-3">
@@ -106,7 +106,7 @@
 								</thead>
 								<tbody>
 									<c:forEach items="${list }" var="list" varStatus="status">
-										<tr >
+										<tr>
 											<td>
 												<input type="checkbox" name="RowCheck" value="${list.boardWriterIdx}" />
 											</td>
@@ -202,7 +202,7 @@
 		}
 	}
 	
-/* 	$(function(){
+	$(function(){
 		setPerPageNumSelect();
 		setSearchTypeSelect();
 		
@@ -237,7 +237,7 @@
 		
 		$searchTypeSel.val('${pageMaker.cri.searchType}').prop("selected", true);
 		
-		$('#searchBtn').on('click', function(){
+		$('#searchButton').on('click', function(){
 			var searchTypeVal = $searchTypeSel.val();
 			var keywordVal = $keyword.val();
 			if(!searchTypeVal){
@@ -257,11 +257,8 @@
 					window.location.href = url;
 		})
 	} 
- 	
+ 
 
-	
-	
-	 */
 
 	</script>
 </body>

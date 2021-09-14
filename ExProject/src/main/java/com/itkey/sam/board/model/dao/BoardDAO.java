@@ -49,6 +49,7 @@ public interface BoardDAO {
 	//게시물 삭제
 	public void deleteBoard(int boardIdx) throws Exception;
 	
+	//관리자 게시물 삭제
 	public void adminDelete(String boardIdx) throws Exception;
 	
 	
