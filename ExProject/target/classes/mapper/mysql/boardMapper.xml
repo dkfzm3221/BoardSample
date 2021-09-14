@@ -126,13 +126,13 @@
 		WHERE 
 			BOARD_IDX = #{boardIdx}
 	</delete>
-<!-- 	<delete id="adminDeleteBoard" parameterType="int">
+	<delete id="adminDelete" parameterType="String">
 		DELETE 
 		FROM 
 			SAMPLE_BOARD_TB
 		WHERE 
 			BOARD_IDX = #{boardIdx}
-	</delete> -->
+	</delete>
 	<!-- 이전글  -->
 	<select id="pagePre" resultType="BoardDTO">
 		SELECT 

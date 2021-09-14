@@ -49,6 +49,8 @@ public interface BoardDAO {
 	//게시물 삭제
 	public void deleteBoard(int boardIdx) throws Exception;
 	
+	public void adminDelete(String boardIdx) throws Exception;
+	
 	
 	//게시물 총 갯수
 	public int count() throws Exception;

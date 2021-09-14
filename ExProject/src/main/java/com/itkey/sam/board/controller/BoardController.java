@@ -221,15 +221,6 @@ public class BoardController {
 		return "redirect:/main";
 	}
 	
-	/*//관리자 게시물 삭제
-	@RequestMapping(value = "/adminDelete", method = RequestMethod.GET)
-	public String adminDelete(@RequestParam("boardIdx") int boardIdx) throws Exception{
-		
-		boardService.deleteBoard(boardIdx);
-		
-		return "redirect:/adminBoard";
-	}*/
-	
 	//관리자 게시판 조회
 	@RequestMapping(value = "/adminBoard")
 	public String  adminBoardList(BoardDTO dto, Model model, Criteria cri) throws Exception{
@@ -323,6 +314,19 @@ public class BoardController {
 		return "/chat";
 	}
 	
+	@RequestMapping(value="/adminDelete")
+	public String adminDelete(HttpServletRequest request) throws Exception{
+		
+		String[] ajaxMsg = request.getParameterValues("valueArr");
+		int size = ajaxMsg.length;
+		for(int i=0; i<size; i++) {
+			
+			boardService.adminDelete(ajaxMsg[i]);
+		}
+		
+		
+		return "redirect:/adminBoard";
+	}
 	
 	
 	

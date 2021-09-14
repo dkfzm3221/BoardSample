@@ -151,4 +151,11 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectOne("boardFileIdx", dto);
 	}
 
+	@Override
+	public void adminDelete(String boardIdx) throws Exception {
+		
+		sqlSession.delete("adminDelete", boardIdx);
+		
+	}
+
 }

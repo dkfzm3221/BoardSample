@@ -150,6 +150,12 @@ public class BoardServiceImpl implements BoardService {
 		return dao.boardFileIdx(dto);
 	}
 
+	@Override
+	public void adminDelete(String boardIdx) throws Exception {
+		
+		dao.adminDelete(boardIdx);
+	}
+
 
 
 }
