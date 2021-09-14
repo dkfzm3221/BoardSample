@@ -202,7 +202,7 @@
 		}
 	}
 	
-	$(function(){
+/* 	$(function(){
 		setPerPageNumSelect();
 		setSearchTypeSelect();
 		
@@ -257,7 +257,7 @@
 					window.location.href = url;
 		})
 	} 
- 
+  */
 
 
 	</script>
