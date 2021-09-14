@@ -168,6 +168,7 @@
 			}
 		});
 	});
+	
 	function deleteValue(){
 		var url = "adminUserDelete";
 		var valueArr = new Array();
@@ -191,18 +192,20 @@
 				},
 				success: function(jdata){
 					if(jdata = 1){
-						alert("강퇴 성공");
+						alert("삭제 성공");
 						location.replace("/sam/adminUser")
 					}
 					else{
-						alert("강퇴 성공")
+						alert("삭제 실패")
 					}
 				}
 			});
 		}
 	}
+	  
+
 	
-/* 	$(function(){
+ 	$(function(){
 		setPerPageNumSelect();
 		setSearchTypeSelect();
 		
@@ -257,7 +260,7 @@
 					window.location.href = url;
 		})
 	} 
-  */
+
 
 
 	</script>

@@ -154,6 +154,15 @@
 		WHERE
 			BOARD_WRITER = #{boardWriter}
 	</delete>
+	<delete id="adminUserDelete">
+		DELETE
+		FROM
+			sample_writer_tb
+		WHERE
+			BOARD_WRITER = #{boardWriter}
+	</delete>
+	
+	
 	<select id="getSalt" resultType="String">
 		SELECT 
 			SALT

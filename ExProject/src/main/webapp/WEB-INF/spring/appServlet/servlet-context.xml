@@ -23,16 +23,13 @@
 			<!-- 인터셉터를 타지 않을 URI exclusive -->
  			
 			<exclude-mapping path="/resources/**"/>
-<!-- 			<exclude-mapping path="/main"/> -->
 			<exclude-mapping path="/join"/> 
 			<exclude-mapping path="/login"/>  
 			<exclude-mapping path="/logout"/>
 			<exclude-mapping path="/modify"/>
 			<exclude-mapping path="/delUser"/>
 			<exclude-mapping path="/adminLogin"/>
-	<!-- 		<exclude-mapping path="/adminBoard"/>
-			<exclude-mapping path="/adminUser"/>
-		  -->
+
 			<beans:bean id="loginInterceptor" class="com.itkey.sam.utils.LoginCheckInterceptor" />
 		</interceptor>
 		

@@ -205,7 +205,7 @@ public class UserController {
 	} 
 	
 	//회원강퇴
-	@RequestMapping(value="adminUserDelete")
+	@RequestMapping(value="adminUserDelete" )
 	public String adminUserDelete(HttpServletRequest request) throws Exception{
 		
 		String[] ajaxMsg = request.getParameterValues("valueArr");
