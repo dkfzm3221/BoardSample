@@ -107,6 +107,55 @@ public class BoardController {
 	
 		return mv;
 	}
+	
+	//관리자 게시판 조회
+		@RequestMapping(value = "/adminBoard")
+		public String  adminBoardList(BoardDTO dto, Model model, Criteria cri) throws Exception{
+			
+			ModelAndView mv = new ModelAndView("main");
+
+		/*	List<BoardDTO> adminBoardList = boardService.getBoardList(dto);*/
+
+			int count = boardService.count();
+			/*
+			model.addAttribute("list", adminBoardList);
+	*/
+			List<BoardDTO> boards = boardService.listPage(cri);
+			PageMaker pageMaker = new PageMaker(cri);
+			int totalCount = boardService.getTotalCount(cri);
+			
+			pageMaker.setTotalCount(totalCount);
+		
+			model.addAttribute("pageNum", count);
+
+			
+			//총 가입 유저수
+			int totalUser = boardService.totalUser();
+			dto.setTotalUser(totalUser);
+			model.addAttribute("totalUser", totalUser);
+			
+			//오늘 게시물 
+			int todayCount = boardService.todayCount();
+			dto.setTodayCount(todayCount);
+			model.addAttribute("todayCount", todayCount);
+			
+			//오늘 가입자 수
+			int todayUser = boardService.todayUser();
+			dto.setTodayUser(todayUser);
+			model.addAttribute("todayUser" , todayUser);
+			
+			
+			model.addAttribute("list", boards);
+			model.addAttribute("pageNum", count);
+			model.addAttribute("pageMaker", pageMaker);
+			
+			return "/adminBoard";
+		}
+	
+	
+	
+	
+	
 
 	/**
 	 * 게시물 작성
@@ -221,49 +270,7 @@ public class BoardController {
 		return "redirect:/main";
 	}
 	
-	//관리자 게시판 조회
-	@RequestMapping(value = "/adminBoard")
-	public String  adminBoardList(BoardDTO dto, Model model, Criteria cri) throws Exception{
-		
-		ModelAndView mv = new ModelAndView("main");
-
-	/*	List<BoardDTO> adminBoardList = boardService.getBoardList(dto);*/
-
-		int count = boardService.count();
-		/*
-		model.addAttribute("list", adminBoardList);
-*/
-		List<BoardDTO> boards = boardService.listPage(cri);
-		PageMaker pageMaker = new PageMaker(cri);
-		int totalCount = boardService.getTotalCount(cri);
-		
-		pageMaker.setTotalCount(totalCount);
 	
-		model.addAttribute("pageNum", count);
-
-		
-		//총 가입 유저수
-		int totalUser = boardService.totalUser();
-		dto.setTotalUser(totalUser);
-		model.addAttribute("totalUser", totalUser);
-		
-		//오늘 게시물 
-		int todayCount = boardService.todayCount();
-		dto.setTodayCount(todayCount);
-		model.addAttribute("todayCount", todayCount);
-		
-		//오늘 가입자 수
-		int todayUser = boardService.todayUser();
-		dto.setTodayUser(todayUser);
-		model.addAttribute("todayUser" , todayUser);
-		
-		
-		model.addAttribute("list", boards);
-		model.addAttribute("pageNum", count);
-		model.addAttribute("pageMaker", pageMaker);
-		
-		return "/adminBoard";
-	}
 	
 	
 	//관리자 회원관리

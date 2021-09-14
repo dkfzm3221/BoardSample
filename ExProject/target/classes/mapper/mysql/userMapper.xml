@@ -153,13 +153,6 @@
 		WHERE
 			BOARD_WRITER = #{boardWriter}
 	</delete>
-	<delete id="adminUserDelete" parameterType="String">
-		DELETE
-		FROM
-			sample_writer_tb
-		WHERE
-			BOARD_WRITER_IDX = #{boardWriterIdx}
-	</delete>
 	<select id="getSalt" resultType="String">
 		SELECT 
 			SALT

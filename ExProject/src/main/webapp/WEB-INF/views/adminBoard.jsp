@@ -78,17 +78,17 @@
 						</div>
 						<div class="col-sm-2"></div>
 						<div class="col-sm-2">
-							<select class="form-control" id="">
-								<option>전체</option>
-								<option>작성자</option>
-								<option>글내용</option>
+							<select class="form-control" id="searchType" name="searchType">
+								<option value="all">전체</option>
+								<option value="w">작성자</option>
+								<option value="c">글내용</option>
 							</select>
 						</div>
 						<div class="col-sm-3">
-							<input type="text" class="form-control" id="" placeholder="문자열을 입력해주세요.">
+							<input type="text" class="form-control" id="keyword" name="keyword" placeholder="문자열을 입력해주세요.">
 						</div>
 						<div class="col-sm-1 text-right">
-							<button type="button" class="btn btn-default btn-full">
+							<button id="searchBtn" class="btn btn-default btn-full">
 								<i class="fas fa-search"></i> 검색
 							</button>
 						</div>

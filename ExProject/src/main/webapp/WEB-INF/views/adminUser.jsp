@@ -75,17 +75,17 @@
 						</div>
 						<div class="col-sm-2"></div>
 						<div class="col-sm-2">
-							<select class="form-control" id="">
-								<option>전체</option>
-								<option>아이디</option>
-								<option>이름</option>
+							<select class="form-control" id="searchType" name="searchType">
+								<option value="all">전체</option>
+								<option value="i">아이디</option>
+								<option value="n">이름</option>
 							</select>
 						</div>
 						<div class="col-sm-3">
-							<input type="text" class="form-control" id="" placeholder="문자열을 입력해주세요.">
+							<input type="text" class="form-control" id="keyword" name="keyword" value="${pageMaker.cri.keyword }" placeholder="문자열을 입력해주세요.">
 						</div>
 						<div class="col-sm-1 text-right">
-							<button type="button" class="btn btn-default btn-full">
+							<button id="searchBtn" class="btn btn-default btn-full">
 								<i class="fas fa-search"></i> 검색
 							</button>
 						</div>
@@ -201,6 +201,67 @@
 			});
 		}
 	}
+	
+/* 	$(function(){
+		setPerPageNumSelect();
+		setSearchTypeSelect();
+		
+		//prev 버튼 활성화, 비활성화 처리
+		var canPrev = '${pageMaker.prev}';
+		if(canPrev !== 'true'){
+			$('#page-prev').addClass('disabled');
+		}
+		
+		//next 버튼 활성화, 비활성화 처리
+		var canNext = '${pageMaker.next}';
+		if(canNext !== 'true'){
+			$('#page-next').addClass('disabled');
+		}
+		var thisPage = '${pageMaker.cri.page}';
+		$('#page'+thisPage).addClass('active');
+	})
+	
+	function setPerPageNumSelect(){
+		var perPageNum = "${pageMaker.cri.perPageNum}";
+		var $perPageSel = $('#perPageSel');
+		var thisPage = '${pageMaker.cri.page}';
+		$perPageSel.val(perPageNum).prop("selected",true);
+		$perPageSel.on('change',function(){
+			window.location.href = "/sam/adminUser?page="+thisPage+"&perPageNum="+$perPageSel.val();
+		})
+}
+	
+ 	function setSearchTypeSelect(){
+		var $searchTypeSel = $('#searchType');
+		var $keyword = $('#keyword');
+		
+		$searchTypeSel.val('${pageMaker.cri.searchType}').prop("selected", true);
+		
+		$('#searchBtn').on('click', function(){
+			var searchTypeVal = $searchTypeSel.val();
+			var keywordVal = $keyword.val();
+			if(!searchTypeVal){
+				alert("검색 조건을 선택하세요");
+				$searchTypeSel.focus();
+				return;
+			}else if(!keywordVal || kewordVal < 2){
+				alert("검색어는 2자 이상입니다.");
+				$('#keyword').focus();
+				return;
+			}
+			var url = "/sam/adminUser?page=1"
+					+ "&perPageNum=" + "${pageMaker.cri.perPageNum}"
+					+ "&searchType=" + searchTypeVal
+					+ "&keyword=" + encodeURIComponent(keywordVal);
+					
+					window.location.href = url;
+		})
+	} 
+ 	
+
+	
+	
+	 */
 
 	</script>
 </body>
