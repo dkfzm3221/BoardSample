@@ -87,7 +87,7 @@ public interface BoardService {
 	//유저 페이징
 	public List<UserDTO> listUser(Criteria cri) throws Exception;
 	
-	public int getFileIdx(FileDTO dto) throws Exception;
+	public int getFileIdx(UserDTO dto) throws Exception;
 	
 	public int boardFileIdx(BoardDTO dto) throws Exception;
 	

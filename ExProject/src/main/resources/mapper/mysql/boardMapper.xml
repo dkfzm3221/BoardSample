@@ -92,7 +92,7 @@
 		SELECT 
 			*
 		FROM 
-			sample_file_tb 
+			sample_writer_tb 
 		WHERE
 			FILE_IDX = #{fileIdx} 
 	</select>

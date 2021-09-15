@@ -87,7 +87,7 @@ public interface BoardDAO {
 	public List<UserDTO> listUser(Criteria cri) throws Exception;
 	
 	//파일이름
-	public int getFileIdx(FileDTO dto) throws Exception;
+	public int getFileIdx(UserDTO dto) throws Exception;
 	
 	public int boardFileIdx(BoardDTO dto) throws Exception;
 	

@@ -216,21 +216,25 @@ public class BoardController {
 	@RequestMapping(value = "/detail")
 	public void detail(BoardDTO dto, Model model, @ModelAttribute("cri") Criteria cri) throws Exception{
 		
-		FileDTO fDto = new FileDTO();
+		UserDTO uDto = new UserDTO();
 		List<BoardDTO> detail = boardService.getBoardList(dto);
 		
-		/*int fileIdx = boardService.getFileIdx(fDto);
-		fDto.setFileIdx(fileIdx);
+	/*	int userFileIdx = boardService.getFileIdx(uDto);
 		
-		int boardIdx = boardService.boardFileIdx(dto);
-		dto.setBoardIdx(boardIdx);
-		*/
+		int boardFileIdx = boardService.addBoard(dto);
+		dto.setBoardIdx(userFileIdx);
+		
+		System.out.println("userFileIdx : " + userFileIdx);
+	*/
+
+		
 		
 	
 		BoardDTO pDto = boardService.pagePre(dto.getBoardIdx());
 		BoardDTO nDto = boardService.pageNext(dto.getBoardIdx());
 
-
+		
+		
 		
 		model.addAttribute("list", detail.get(0));
 		model.addAttribute("pagePre", pDto);

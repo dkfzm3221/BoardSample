@@ -139,7 +139,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int getFileIdx(FileDTO dto) throws Exception {
+	public int getFileIdx(UserDTO dto) throws Exception {
 		
 		return dao.getFileIdx(dto);
 	}

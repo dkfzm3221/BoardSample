@@ -140,7 +140,7 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public int getFileIdx(FileDTO dto) throws Exception {
+	public int getFileIdx(UserDTO dto) throws Exception {
 		
 		return sqlSession.selectOne("getFileIdx", dto);
 	}

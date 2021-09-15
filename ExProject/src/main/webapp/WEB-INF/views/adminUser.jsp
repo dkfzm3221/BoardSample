@@ -192,11 +192,11 @@
 				},
 				success: function(jdata){
 					if(jdata = 1){
-						alert("삭제 성공");
+						alert("강퇴 성공");
 						location.replace("/sam/adminUser")
 					}
 					else{
-						alert("삭제 실패")
+						alert("강퇴 실패")
 					}
 				}
 			});
