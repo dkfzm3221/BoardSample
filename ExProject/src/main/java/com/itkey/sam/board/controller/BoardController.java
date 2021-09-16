@@ -225,7 +225,7 @@ public class BoardController {
 		dto.setBoardIdx(userFileIdx);
 		
 		System.out.println("userFileIdx : " + userFileIdx);
-	*/
+	*/ 
 
 		
 		
