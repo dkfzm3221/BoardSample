@@ -33,7 +33,7 @@ import com.itkey.sam.board.model.service.UserService;
 import com.itkey.sam.utils.Criteria;
 import com.itkey.sam.utils.PageMaker;
 
-
+ 
 @Controller
 public class BoardController {
 	// Logback logger (package : org.slf4j.Logger & org.slf4j.LoggerFactory)
